@@ -1,18 +1,31 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CatsComponent } from './cats/cats.component';
+import { DogsComponent } from './dogs/dogs.component';
+import { RoutingModule } from './routing.module';
+import { CatDetailsComponent } from './cat-details/cat-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CatsComponent,
+    DogsComponent,
+    CatDetailsComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RoutingModule,
+    HttpClientModule,
+    
   ],
-  providers: [],
+  providers: [
+    provideClientHydration()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
